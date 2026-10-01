@@ -20,15 +20,6 @@ public class Lab2T3 {
         th3.join();
         th4.join();
 
-        System.out.println("Thread 1 result: " + task.getResult());
-        System.out.println("Thread 2 result: " + task.getResult());
-        System.out.println("Thread 3 result: " + task.getResult());
-        System.out.println("Thread 4 result: " + task.getResult());
-        
-        //long sum = 0
-
-        //System.out.println(sum);
-
         System.out.println("Result: " + task.getResult());
 
         /*
