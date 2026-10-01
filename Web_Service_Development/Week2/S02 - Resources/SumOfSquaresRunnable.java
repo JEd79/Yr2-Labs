@@ -8,8 +8,17 @@ public class SumOfSquaresRunnable implements Runnable {
         this.end = end;
     }
 
+    // @Override
+    // public void run() {
+    //     result = 0;
+    //     for (int i = start; i <= end; i++) {
+    //         result += i * i;
+    //     }
+    // }
+
+    //Lab2T3 update
     @Override
-    public void run() {
+    public synchronized void run() {
         result = 0;
         for (int i = start; i <= end; i++) {
             result += i * i;

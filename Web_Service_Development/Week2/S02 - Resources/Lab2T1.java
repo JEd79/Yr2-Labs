@@ -18,7 +18,11 @@ public class Lab2T1 {
 
         System.out.println("Sum of thread 1 and thread 2: " + sum);
 
-
+        /*
+        The result is consistent on every execution as each thread works 
+        on its own data and there is no shared variable being modified by multiple threads. 
+        Therefore, the program is safe from race conditions.
+        */
 
 
 
