@@ -29,9 +29,9 @@ public class Lab2T4Server {
 }
 
 /*
-The server was modified to use multithreading. The main thread continuously listens for incoming 
-UDP requests and creates a new RandomNumberThread for each client request. The worker thread generates 
-the random number and sends the response back to the client. This separation of responsibilities 
-allows the server to handle multiple client requests concurrently while the main thread remains available 
-to accept new connections, improving responsiveness compared to the single-threaded implementation.
+The server was modified to use multithreading. The main thread continuously listens for incoming UDP requests and creates 
+a new Lab2T4Worker thread for each client request. Each worker thread is responsible for processing a single
+request, generating a random number, and sending the response back to the client. 
+This allows the server to handle multiple client requests concurrently while the main thread remains available
+to accept new requests. More performant than the original single-threaded implementation.
 */

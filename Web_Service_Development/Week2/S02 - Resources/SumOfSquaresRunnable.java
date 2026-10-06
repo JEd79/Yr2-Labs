@@ -25,6 +25,12 @@ public class SumOfSquaresRunnable implements Runnable {
         }
     }
 
+    /*
+    The synchronized keyword ensures only one thread at a time can execute the run() method on the shared task object.
+    Without it result could be updated by multiple threads simultaneously, causing a race condition.
+    Stops concurrency as the threads execute after each has finished. 
+    */
+
     public long getResult() {
         return result;
     }

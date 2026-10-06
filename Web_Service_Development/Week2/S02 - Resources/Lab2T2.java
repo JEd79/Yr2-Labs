@@ -1,5 +1,6 @@
 public class Lab2T2 {
     public static void main(String[] args) throws InterruptedException {
+        //"Threads in Java: Implementing Runnable - Main" (slide 36).
         SumOfSquaresRunnable task = new SumOfSquaresRunnable(1,20);
 
         //https://www.geeksforgeeks.org/java/runnable-interface-in-java/

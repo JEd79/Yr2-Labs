@@ -17,3 +17,22 @@ request is stored in its own DatagramPacket object and passed to a separate work
 thread. This reduces the risk of threads overwriting each other's request information. 
 Overall, the main concerns are shared access to the server socket, uncontrolled 
 thread creation, and the inherent unreliability of UDP communication.
+
+\\
+
+Yes, this implementation could run the risk of race conditions. 
+The lecture explains that race conditions can occur when multiple threads access shared 
+resources at the same time. In this server, multiple Lab2T4Worker threads are 
+created and all use the same DatagramSocket object that is passed from the main thread. 
+If several worker threads try to use the shared socket at the same time, there is a possibility of unexpected behaviour.
+
+Another potential problem is that creating a new thread for every client request could become inefficient 
+if many clients connect at once. A large number of threads may consume system resources and reduce performance.
+
+However, each worker thread receives its own DatagramPacket and generates its own random number, 
+so these pieces of data are not shared between threads. This reduces the likelihood of race conditions 
+compared to situations where threads are modifying the same variable or object.
+
+Overall, the server benefits from improved responsiveness because the main thread can continue 
+listening for new requests while worker threads process existing requests, but care must be taken 
+when multiple threads share resources.

@@ -1,6 +1,6 @@
 public class Lab2T1 {
     public static void main(String[] args) throws InterruptedException{
-        
+        //"Threads in Java: Extending Thread - Main" (slide 34).
         SumOfSquaresThread th1 = new SumOfSquaresThread(0,10);
         SumOfSquaresThread th2 = new SumOfSquaresThread(11, 20);
 
@@ -19,8 +19,8 @@ public class Lab2T1 {
         System.out.println("Sum of thread 1 and thread 2: " + sum);
 
         /*
-        The result is consistent on every execution as each thread works 
-        on its own data and there is no shared variable being modified by multiple threads. 
+        The result is consistent on each execution as each thread works on its own data. 
+        There is no shared variable being modified by multiple threads. 
         Therefore, the program is safe from race conditions.
         */
 
