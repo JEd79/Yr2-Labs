@@ -12,25 +12,16 @@ public class Lab2T4Server {
 
         while (true) {
 
-            DatagramPacket receivePacket =
-                new DatagramPacket(new byte[1024], 1024);
+            DatagramPacket receivePacket = new DatagramPacket(new byte[1024], 1024);
 
             System.out.println("Waiting for request...");
 
             serverSocket.receive(receivePacket);
 
-            System.out.println(
-                "Request received from "
-                + receivePacket.getAddress()
-                + ":" +
-                receivePacket.getPort()
+            System.out.println("Request received from " + receivePacket.getAddress() + ":" + receivePacket.getPort()
             );
 
-            Lab2T4Worker worker =
-                new Lab2T4Worker(
-                    serverSocket,
-                    receivePacket
-                );
+            Lab2T4Worker worker = new Lab2T4Worker(serverSocket,receivePacket);
 
             worker.start();
         }

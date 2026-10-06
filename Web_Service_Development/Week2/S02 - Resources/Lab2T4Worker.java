@@ -7,8 +7,7 @@ public class Lab2T4Worker extends Thread {
     private DatagramSocket socket;
     private DatagramPacket receivePacket;
 
-    public Lab2T4Worker(DatagramSocket socket,
-                              DatagramPacket receivePacket) {
+    public Lab2T4Worker(DatagramSocket socket, DatagramPacket receivePacket) {
         this.socket = socket;
         this.receivePacket = receivePacket;
     }
@@ -27,24 +26,11 @@ public class Lab2T4Worker extends Thread {
             String message = String.valueOf(randomNumber);
 
             DatagramPacket sendPacket =
-                new DatagramPacket(
-                    message.getBytes(),
-                    message.getBytes().length,
-                    clientAddress,
-                    clientPort
-                );
+                new DatagramPacket(message.getBytes(), message.getBytes().length,clientAddress,clientPort);
 
             socket.send(sendPacket);
 
-            System.out.println(
-                getName() +
-                " sent random number " +
-                randomNumber +
-                " to " +
-                clientAddress +
-                ":" +
-                clientPort
-            );
+            System.out.println(getName() + " sent random number " + randomNumber + " to " + clientAddress + ":" + clientPort);
 
         } catch (IOException e) {
             e.printStackTrace();

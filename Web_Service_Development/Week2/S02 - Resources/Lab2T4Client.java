@@ -11,36 +11,20 @@ public class Lab2T4Client {
 
         String content = "";
 
-        DatagramPacket sendPacket =
-            new DatagramPacket(
-                content.getBytes(),
-                content.getBytes().length,
-                InetAddress.getByName("127.0.0.1"),
-                3000
-            );
+        DatagramPacket sendPacket = new DatagramPacket(content.getBytes(), content.getBytes().length, InetAddress.getByName("127.0.0.1"),3000);
 
         clientSocket.send(sendPacket);
 
         System.out.println("Connection request sent");
 
-        DatagramPacket receivePacket =
-            new DatagramPacket(new byte[1024], 1024);
+        DatagramPacket receivePacket = new DatagramPacket(new byte[1024], 1024);
 
         clientSocket.receive(receivePacket);
 
-        String randomNumber =
-            new String(
-                receivePacket.getData(),
-                0,
-                receivePacket.getLength()
-            );
+        String randomNumber = new String(receivePacket.getData(),0,receivePacket.getLength());
 
-        System.out.println(
-            "Random number received: "
-            + randomNumber
-        );
+        System.out.println("Random number received: " + randomNumber);
 
-        clientSocket.close();
     }
 }
 
